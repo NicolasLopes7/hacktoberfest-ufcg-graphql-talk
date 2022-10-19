@@ -1,0 +1,12 @@
+{
+  "extends": "tsconfig/react.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
