@@ -1,4 +1,5 @@
-# ⚡ OpenDev UFCG Hacktoberfest - Fazendo Mágica com GraphQL.
+# ⚡ OpenDev UFCG Hacktoberfest Graphql
+
 Esse projeto é um monorepo feito contendo:
 - Design-System Package
 - React UI REST
