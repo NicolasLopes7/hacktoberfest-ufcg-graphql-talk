@@ -1,0 +1,15 @@
+{
+    "name": "ui-rest-types",
+    "version": "1.0.0",
+    "main": "types.ts",
+    "types": "types.ts",
+    "private": true,
+    "type": "module",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.6.4"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
