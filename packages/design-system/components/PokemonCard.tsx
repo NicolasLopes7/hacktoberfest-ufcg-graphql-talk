@@ -29,7 +29,7 @@ export const PokemonCard = ({ pokemon }: PokemonProps) => {
       <Box css={{ flexDirection: 'row', gap: '$2' }}>
         <Box css={{ flexDirection: 'row', gap: '$1' }}>
           <Text color="neutral-light">tipo: </Text>
-          <PokemonTypeBadge type={pokemon.info.type} />
+          <PokemonTypeBadge type={pokemon?.info?.type} />
         </Box>
         <Text color="neutral-light">
           qtd. evoluções: {pokemon.evolutions?.length}
