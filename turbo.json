@@ -9,8 +9,17 @@
                 "dist/**"
             ]
         },
+        "prisma:check": {
+            "dependsOn": [
+                "^prisma:check"
+            ],
+            "outputs": []
+        },
         "dev": {
-            "dependsOn": ["^dev"],
+            "dependsOn": [
+                "prisma:check",
+                "^dev"
+            ],
             "outputs": []
         }
     }

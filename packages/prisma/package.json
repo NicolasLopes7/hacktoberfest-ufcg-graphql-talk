@@ -11,5 +11,8 @@
   "dependencies": {
     "@prisma/client": "^4.5.0",
     "prisma": "^4.5.0"
+  },
+  "scripts": {
+    "prisma:check": "yarn prisma generate && yarn prisma migrate dev"
   }
 }
