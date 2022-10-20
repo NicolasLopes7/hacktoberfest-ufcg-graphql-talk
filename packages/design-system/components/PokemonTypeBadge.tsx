@@ -4,7 +4,7 @@ import { Text } from './primitives/Text';
 
 const typeColorMap = {
   [PokemonType.ELECTRIC]: {
-    boxColor: '#b9be71',
+    boxColor: '#f0ff1c54',
     label: '⚡',
   },
   [PokemonType.FIRE]: {
