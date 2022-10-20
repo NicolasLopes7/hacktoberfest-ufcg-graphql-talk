@@ -13,11 +13,8 @@ export const updateService = async (payload: UpdatePayload) => {
       image_url: payload.image_url,
       name: payload.name,
       info: {
-        updateMany: {
-          data: {
-            type: payload.type,
-          },
-          where: { pokemonId: payload.id },
+        update: {
+          type: payload.type,
         },
       },
     },

@@ -31,9 +31,6 @@ export const PokemonCard = ({ pokemon }: PokemonProps) => {
           <Text color="neutral-light">tipo: </Text>
           <PokemonTypeBadge type={pokemon?.info?.type} />
         </Box>
-        <Text color="neutral-light">
-          qtd. evoluções: {pokemon.evolutions?.length}
-        </Text>
       </Box>
     </Box>
   );
