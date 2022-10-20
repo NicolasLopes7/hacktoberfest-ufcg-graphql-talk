@@ -10,8 +10,12 @@ function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   const fetchPokemons = async () => {
-    const { data } = await api.get<Pokemon[]>('/pokemons');
-    return data;
+    const { data: pokemonData } = await api.get<Pokemon[]>('/pokemons');
+    for (const pokemon of pokemonData) {
+      const { data: infoData } = await api.get(`/pokemon/${pokemon.id}/info`);
+      pokemon.info = infoData;
+    }
+    return pokemonData;
   };
 
   useEffect(() => {

@@ -2,12 +2,12 @@ import { Request, Response } from 'express';
 import { prisma } from 'prisma';
 
 export const get = async (req: Request, res: Response) => {
-  const { name } = req.params;
-  const pokemon = await prisma.pokemon.findFirst({
-    where: { name },
+  const { id } = req.params;
+  const pokemonInfo = await prisma.pokemonInfo.findFirst({
+    where: { pokemonId: Number(id) },
   });
 
-  if (!pokemon) return res.sendStatus(404);
+  if (!pokemonInfo) return res.sendStatus(404);
 
-  return res.json(pokemon);
+  return res.json(pokemonInfo);
 };
