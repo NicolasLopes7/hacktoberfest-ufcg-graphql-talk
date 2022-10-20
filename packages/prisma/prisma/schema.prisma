@@ -12,13 +12,12 @@ model Pokemon {
   name      String
   image_url String
 
-  pokemonInfoId Int?
-  info          PokemonInfo[]
+  info PokemonInfo?
 }
 
 model PokemonInfo {
   id        Int     @id @default(autoincrement())
   type      String
-  pokemonId Int
-  pokemon   Pokemon @relation(fields: [pokemonId], references: [id])
+  Pokemon   Pokemon @relation(fields: [pokemonId], references: [id])
+  pokemonId Int     @unique
 }
