@@ -1,10 +1,9 @@
-import { PokemonCard } from 'design-system';
+import { PokemonCard, PokemonGrid } from 'design-system';
 import { Box } from 'design-system';
 import { Heading } from 'design-system';
 import { Search } from 'design-system';
 import { globalStyles } from 'design-system';
 import { PokemonType } from 'ui-rest-types';
-
 
 function App() {
   globalStyles();
@@ -19,21 +18,7 @@ function App() {
         <Search />
       </Box>
 
-      <Box
-        css={{
-          display: 'grid',
-          marginTop: '$4',
-          marginRight: 'auto',
-          width: '100%',
-          '@bp1': {
-            gridTemplateColumns: '1fr',
-          },
-          '@bp2': {
-            gridTemplateColumns: 'repeat(auto-fit, minmax(325px, 1fr))',
-          },
-          gap: '$5',
-        }}
-      >
+      <PokemonGrid>
         <PokemonCard
           pokemon={{
             id: 1,
@@ -70,7 +55,7 @@ function App() {
             evolutions: [],
           }}
         />
-      </Box>
+      </PokemonGrid>
     </Box>
   );
 }
