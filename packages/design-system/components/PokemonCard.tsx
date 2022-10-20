@@ -26,9 +26,9 @@ export const PokemonCard = ({ pokemon }: PokemonProps) => {
           maxWidth: '15rem',
         }}
       />
-      <Box css={{ flexDirection: 'row', gap: '$4' }}>
+      <Box css={{ flexDirection: 'row', gap: '$3' }}>
         <Box css={{ flexDirection: 'row', gap: '$1' }}>
-          <Text color="neutral-light">tipo:</Text>
+          <Text color="neutral-light">tipo: </Text>
           <PokemonTypeBadge type={pokemon.info.type} />
         </Box>
         <Text color="neutral-light">

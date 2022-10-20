@@ -25,10 +25,10 @@ export const PokemonTypeBadge = ({ type }: PokemonTypeBadgeProps) => {
     <Box
       style={{
         backgroundColor: boxColor,
-        padding: '3px 15px',
+        padding: '0px 8px',
       }}
     >
-      <Text>{label}</Text>
+      <Text size="small">{label}</Text>
     </Box>
   );
 };

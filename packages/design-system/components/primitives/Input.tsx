@@ -23,17 +23,23 @@ export const Input = styled('input', {
       small: {
         fontSize: '0.85rem',
         paddingBottom: '$2',
+        paddingTop: '$2',
         paddingRight: '$2',
+        paddingLeft: '$2',
       },
       medium: {
         fontSize: 'medium',
         paddingBottom: '$2',
+        paddingTop: '$2',
         paddingRight: '$3',
+        paddingLeft: '$3',
       },
       large: {
         fontSize: 'medium',
         paddingBottom: '$3',
+        paddingTop: '$3',
         paddingRight: '$4',
+        paddingLeft: '$4',
       },
     },
     color: {
