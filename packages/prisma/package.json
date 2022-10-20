@@ -1,0 +1,16 @@
+{
+  "name": "prisma",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "@prisma/client": "^4.5.0",
+    "tsconfig": "*",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "prisma": "^4.5.0"
+  }
+}
