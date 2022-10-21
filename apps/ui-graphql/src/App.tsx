@@ -1,5 +1,9 @@
-import { Box, Heading, PokemonGrid, Search } from 'design-system';
+import { useQuery } from '@apollo/client';
+import { Box, Heading, PokemonCard, PokemonGrid, Search } from 'design-system';
+import { GET_POKEMONS_QUERY } from './data/pokemon';
+
 function App() {
+  const { data } = useQuery(GET_POKEMONS_QUERY);
   return (
     <Box container>
       <Box css={{ gap: '$3' }}>
@@ -12,9 +16,10 @@ function App() {
       </Box>
 
       <PokemonGrid>
-        {/* {[pokemons].map((pokemon) => (
+        {/* @ts-ignore */}
+        {data?.pokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
-        ))} */}
+        ))}
       </PokemonGrid>
     </Box>
   );
