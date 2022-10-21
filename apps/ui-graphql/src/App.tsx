@@ -28,7 +28,6 @@ function App() {
   };
 
   const handleSearchPokemon = async (pokemonName: string) => {
-    console.log('pokemonName', pokemonName);
     await refetch({ search: pokemonName });
   };
 
