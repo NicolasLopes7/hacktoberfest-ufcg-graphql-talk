@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { Box, Heading, PokemonCard, PokemonGrid, Search } from 'design-system';
-import { GET_POKEMONS_QUERY } from './data/pokemon';
+import { GET_POKEMONS_QUERY, UPDATE_POKEMON_MUTATION } from './data/pokemon';
 import { Pokemon } from '../generated-types';
 import { NamedPropertyInsideData } from './types';
 function App() {
@@ -8,6 +8,22 @@ function App() {
     useQuery<NamedPropertyInsideData<'pokemons', Pokemon[]>>(
       GET_POKEMONS_QUERY
     );
+
+  const [updatePokemon] = useMutation(UPDATE_POKEMON_MUTATION, {
+    refetchQueries: [GET_POKEMONS_QUERY],
+  });
+
+  const handleEditPokemon = async (pokemon: Pokemon) => {
+    await updatePokemon({
+      variables: {
+        id: pokemon.id,
+        data: {
+          name: pokemon.name,
+          type: pokemon.info?.type,
+        },
+      },
+    });
+  };
 
   return (
     <Box container>
@@ -22,7 +38,11 @@ function App() {
 
       <PokemonGrid>
         {data?.pokemons.map((pokemon) => (
-          <PokemonCard<Pokemon> key={pokemon.id} pokemon={pokemon} />
+          <PokemonCard<Pokemon>
+            key={pokemon.id}
+            pokemon={pokemon}
+            onEdit={handleEditPokemon}
+          />
         ))}
       </PokemonGrid>
     </Box>

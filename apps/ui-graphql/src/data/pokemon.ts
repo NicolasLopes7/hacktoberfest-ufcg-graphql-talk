@@ -13,3 +13,11 @@ export const GET_POKEMONS_QUERY = gql`
     }
   }
 `;
+
+export const UPDATE_POKEMON_MUTATION = gql`
+  mutation UpdatePokemon($id: ID!, $data: UpdatePokemonInput!) {
+    updatePokemon(id: $id, data: $data) {
+      id
+    }
+  }
+`;
