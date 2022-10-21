@@ -8,7 +8,7 @@ type UpdatePayload = {
 };
 export const updateService = async (payload: UpdatePayload) => {
   const updatedPokemon = await prisma.pokemon.update({
-    where: { id: payload.id },
+    where: { id: Number(payload.id) },
     data: {
       image_url: payload.image_url,
       name: payload.name,

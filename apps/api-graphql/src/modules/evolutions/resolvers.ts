@@ -4,7 +4,7 @@ const pokemonEvolutionFieldResolver = async (parent: PokemonInfo) => {
   if (!parent) return;
   return prisma.pokemonEvolution.findMany({
     where: {
-      pokemonInfoId: parent.id,
+      pokemonInfoId: Number(parent.id),
     },
   });
 };

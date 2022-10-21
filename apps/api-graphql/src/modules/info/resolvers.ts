@@ -5,7 +5,7 @@ const pokemonInfoFieldResolver = async (parent: Pokemon) => {
 
   const info = await prisma.pokemonInfo.findFirst({
     where: {
-      pokemonId: parent.id,
+      pokemonId: Number(parent.id),
     },
   });
   return info;
