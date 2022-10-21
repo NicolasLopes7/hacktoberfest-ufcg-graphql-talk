@@ -1,17 +1,33 @@
 import { gql } from '@apollo/client';
 
-export const GET_POKEMONS_QUERY = gql`
-  query GetPokemons {
-    pokemons {
+const POKEMON_FRAGMENT = gql`
+  fragment PokemonFragment on Pokemon {
+    id
+    image_url
+    name
+    info {
       id
-      image_url
-      name
-      info {
-        id
-        type
-      }
+      type
     }
   }
+`;
+
+export const GET_POKEMONS_QUERY = gql`
+  query GetPokemons($search: String) {
+    pokemons(search: $search) {
+      ...PokemonFragment
+    }
+  }
+  ${POKEMON_FRAGMENT}
+`;
+
+export const SEARCH_POKEMONS_QUERY = gql`
+  query SearchPokemons($search: String!) {
+    pokemons(search: $search) {
+      ...PokemonFragment
+    }
+  }
+  ${POKEMON_FRAGMENT}
 `;
 
 export const UPDATE_POKEMON_MUTATION = gql`

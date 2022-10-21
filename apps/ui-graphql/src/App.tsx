@@ -1,13 +1,15 @@
-import { useMutation, useQuery } from '@apollo/client';
+import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
 import { Box, Heading, PokemonCard, PokemonGrid, Search } from 'design-system';
-import { GET_POKEMONS_QUERY, UPDATE_POKEMON_MUTATION } from './data/pokemon';
+import {
+  GET_POKEMONS_QUERY,
+  SEARCH_POKEMONS_QUERY,
+  UPDATE_POKEMON_MUTATION,
+} from './data/pokemon';
 import { Pokemon } from '../generated-types';
-import { NamedPropertyInsideData } from './types';
+import { GraphQLResult } from './types';
 function App() {
-  const { data } =
-    useQuery<NamedPropertyInsideData<'pokemons', Pokemon[]>>(
-      GET_POKEMONS_QUERY
-    );
+  const { data, refetch } =
+    useQuery<GraphQLResult<'pokemons', Pokemon[]>>(GET_POKEMONS_QUERY);
 
   const [updatePokemon] = useMutation(UPDATE_POKEMON_MUTATION, {
     refetchQueries: [GET_POKEMONS_QUERY],
@@ -25,6 +27,11 @@ function App() {
     });
   };
 
+  const handleSearchPokemon = async (pokemonName: string) => {
+    console.log('pokemonName', pokemonName);
+    await refetch({ search: pokemonName });
+  };
+
   return (
     <Box container>
       <Box css={{ gap: '$3' }}>
@@ -33,7 +40,7 @@ function App() {
           <span>Digite o nome do pokemon para começar!</span>
         </div>
 
-        <Search />
+        <Search onSearch={handleSearchPokemon} />
       </Box>
 
       <PokemonGrid>
