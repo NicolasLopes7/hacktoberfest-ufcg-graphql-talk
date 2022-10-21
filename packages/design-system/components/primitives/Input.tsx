@@ -46,7 +46,6 @@ export const Input = styled('input', {
       primary: {
         color: '$white',
         '&:hover': {
-          color: '$primary11',
           backgroundColor: slateDarkA.slateA5,
         },
       },
