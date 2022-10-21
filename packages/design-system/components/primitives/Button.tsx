@@ -52,12 +52,9 @@ export const Button = styled('button', {
         },
       },
       icon: {
-        height: 'fit-content',
-        width: 'fit-content',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: '1rem',
+        gap: '$2',
       },
     },
     color: {
