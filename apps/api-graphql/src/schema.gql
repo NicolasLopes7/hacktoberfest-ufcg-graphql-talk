@@ -5,6 +5,12 @@ type Pokemon {
   info: PokemonInfo
 }
 
+enum PokemonType {
+  electric
+  water
+  fire
+}
+
 type PokemonInfo {
   id: ID!
   type: PokemonType!
@@ -28,8 +34,11 @@ type Query {
   pokemon(where: FindPokemonWhereInput!): Pokemon
 }
 
-enum PokemonType {
-  electric
-  water
-  fire
+input UpdatePokemonInput {
+  name: String
+  type: PokemonType
+}
+
+type Mutation {
+  updatePokemon(id: ID!, data: UpdatePokemonInput!): Pokemon
 }
