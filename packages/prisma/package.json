@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",
-    "prisma": "^3.14.0",
+    "prisma": "^3.14.0"
   },
   "scripts": {
     "prisma:check": "yarn prisma migrate dev"
