@@ -4,6 +4,10 @@ export type FindOnePokemonResolverArgsInput = {
     name?: string;
   };
 };
+export type FindManyPokemonsResolverInput = {
+  search?: string;
+};
+
 export type BuildWhereOutput =
   | { id: { equals: number } }
   | { name: { equals: string } };

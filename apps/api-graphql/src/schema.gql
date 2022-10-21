@@ -30,7 +30,7 @@ input FindPokemonWhereInput {
 }
 
 type Query {
-  pokemons: [Pokemon!]!
+  pokemons(search: String): [Pokemon!]!
   pokemon(where: FindPokemonWhereInput!): Pokemon
 }
 
