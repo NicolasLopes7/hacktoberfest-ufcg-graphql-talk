@@ -10,17 +10,13 @@
             ]
         },
         "prisma:check": {
-            "dependsOn": [
-                "^prisma:check"
-            ],
-            "outputs": []
+            "cache": false
         },
         "dev": {
             "dependsOn": [
-                "prisma:check",
-                "^dev"
+                "prisma:check"
             ],
-            "outputs": []
+            "cache": false
         }
     }
 }

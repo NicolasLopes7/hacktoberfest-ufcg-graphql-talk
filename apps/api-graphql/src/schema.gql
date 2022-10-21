@@ -1,0 +1,35 @@
+type Pokemon {
+  id: ID!
+  name: String!
+  image_url: String!
+  info: PokemonInfo
+}
+
+type PokemonInfo {
+  id: ID!
+  type: PokemonType!
+  pokemonId: ID!
+  evolutions: [PokemonEvolution]
+}
+
+type PokemonEvolution {
+  id: ID!
+  name: String!
+  pokemonInfoId: ID!
+}
+
+input FindPokemonWhereInput {
+  id: ID
+  name: String
+}
+
+type Query {
+  pokemons: [Pokemon!]!
+  pokemon(where: FindPokemonWhereInput!): Pokemon
+}
+
+enum PokemonType {
+  electric
+  water
+  fire
+}

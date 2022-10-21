@@ -15,9 +15,17 @@ model Pokemon {
   info PokemonInfo?
 }
 
+model PokemonEvolution {
+  id            Int          @id @default(autoincrement())
+  name          String
+  pokemonInfoId Int
+  pokemonInfo   PokemonInfo? @relation(fields: [pokemonInfoId], references: [id])
+}
+
 model PokemonInfo {
-  id        Int     @id @default(autoincrement())
-  type      String
-  Pokemon   Pokemon @relation(fields: [pokemonId], references: [id])
-  pokemonId Int     @unique
+  id               Int                @id @default(autoincrement())
+  type             String
+  Pokemon          Pokemon            @relation(fields: [pokemonId], references: [id])
+  pokemonId        Int                @unique
+  evolutions PokemonEvolution[]
 }

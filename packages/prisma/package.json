@@ -4,15 +4,14 @@
   "main": "index.ts",
   "license": "MIT",
   "devDependencies": {
-    "@prisma/client": "^4.5.0",
     "tsconfig": "*",
     "typescript": "^4.8.4"
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",
-    "prisma": "^4.5.0"
+    "prisma": "^3.14.0",
   },
   "scripts": {
-    "prisma:check": "yarn prisma generate && yarn prisma migrate dev"
+    "prisma:check": "yarn prisma migrate dev"
   }
 }
