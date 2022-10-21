@@ -1,0 +1,9 @@
+overwrite: true
+schema:
+  - ../api-graphql/src/schema.gql
+generates:
+  ./generated-types.d.ts:
+    plugins:
+      - typescript
+    config:
+      withHooks: true

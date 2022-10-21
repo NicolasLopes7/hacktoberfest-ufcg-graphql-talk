@@ -1,9 +1,14 @@
 import { useQuery } from '@apollo/client';
 import { Box, Heading, PokemonCard, PokemonGrid, Search } from 'design-system';
 import { GET_POKEMONS_QUERY } from './data/pokemon';
-
+import { Pokemon } from '../generated-types';
+import { NamedPropertyInsideData } from './types';
 function App() {
-  const { data } = useQuery(GET_POKEMONS_QUERY);
+  const { data } =
+    useQuery<NamedPropertyInsideData<'pokemons', Pokemon[]>>(
+      GET_POKEMONS_QUERY
+    );
+
   return (
     <Box container>
       <Box css={{ gap: '$3' }}>
@@ -16,9 +21,8 @@ function App() {
       </Box>
 
       <PokemonGrid>
-        {/* @ts-ignore */}
         {data?.pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          <PokemonCard<Pokemon> key={pokemon.id} pokemon={pokemon} />
         ))}
       </PokemonGrid>
     </Box>
