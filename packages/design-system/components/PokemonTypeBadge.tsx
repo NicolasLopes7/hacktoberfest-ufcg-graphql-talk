@@ -17,9 +17,10 @@ const typeColorMap = {
   },
 };
 
-type PokemonTypeBadgeProps = { type?: PokemonType };
+type PokemonTypeBadgeProps = { type?: PokemonType | string };
 export const PokemonTypeBadge = ({ type }: PokemonTypeBadgeProps) => {
   if (!type) return null;
+  //@ts-ignore
   const { boxColor, label } = typeColorMap[type];
 
   return (

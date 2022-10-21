@@ -1,13 +1,16 @@
-import { Pokemon } from 'ui-rest-types';
+import { PokemonType } from 'ui-rest-types';
 import { PokemonTypeBadge } from './PokemonTypeBadge';
 import { Box } from './primitives/Box';
 import { Heading } from './primitives/Heading';
 import { Image } from './primitives/Image';
 import { slateDark } from '@radix-ui/colors';
 import { Text } from './primitives/Text';
+import { GenericPokemon } from './types';
 
-type PokemonProps = { pokemon: Pokemon };
-export const PokemonCard = ({ pokemon }: PokemonProps) => {
+type PokemonProps<T extends GenericPokemon> = { pokemon: T };
+export function PokemonCard<T extends GenericPokemon>({
+  pokemon,
+}: PokemonProps<T>) {
   return (
     <Box
       css={{
@@ -34,4 +37,4 @@ export const PokemonCard = ({ pokemon }: PokemonProps) => {
       </Box>
     </Box>
   );
-};
+}
