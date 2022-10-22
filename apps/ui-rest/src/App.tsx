@@ -15,11 +15,17 @@ function App() {
       const { data: infoData } = await api.get(`/pokemon/${pokemon.id}/info`);
       pokemon.info = infoData;
     }
-    return pokemonData;
+
+    setPokemons(pokemonData);
+  };
+
+  const handleEditPokemon = async (pokemon: Pokemon) => {
+    await api.put(`/pokemon/${pokemon.id}`, pokemon);
+    await fetchPokemons();
   };
 
   useEffect(() => {
-    fetchPokemons().then(setPokemons);
+    fetchPokemons();
   }, []);
 
   return (
@@ -35,7 +41,11 @@ function App() {
 
       <PokemonGrid>
         {pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            onEdit={handleEditPokemon}
+          />
         ))}
       </PokemonGrid>
     </Box>
