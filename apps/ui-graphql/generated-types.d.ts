@@ -17,6 +17,17 @@ export type FindPokemonWhereInput = {
   name?: InputMaybe<Scalars['String']>;
 };
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  updatePokemon?: Maybe<Pokemon>;
+};
+
+
+export type MutationUpdatePokemonArgs = {
+  data: UpdatePokemonInput;
+  id: Scalars['ID'];
+};
+
 export type Pokemon = {
   __typename?: 'Pokemon';
   id: Scalars['ID'];
@@ -55,4 +66,14 @@ export type Query = {
 
 export type QueryPokemonArgs = {
   where: FindPokemonWhereInput;
+};
+
+
+export type QueryPokemonsArgs = {
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type UpdatePokemonInput = {
+  name?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<PokemonType>;
 };
