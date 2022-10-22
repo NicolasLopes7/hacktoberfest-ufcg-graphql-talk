@@ -21,15 +21,6 @@ export const GET_POKEMONS_QUERY = gql`
   ${POKEMON_FRAGMENT}
 `;
 
-export const SEARCH_POKEMONS_QUERY = gql`
-  query SearchPokemons($search: String!) {
-    pokemons(search: $search) {
-      ...PokemonFragment
-    }
-  }
-  ${POKEMON_FRAGMENT}
-`;
-
 export const UPDATE_POKEMON_MUTATION = gql`
   mutation UpdatePokemon($id: ID!, $data: UpdatePokemonInput!) {
     updatePokemon(id: $id, data: $data) {

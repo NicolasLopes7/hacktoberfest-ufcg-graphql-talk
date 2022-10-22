@@ -1,10 +1,6 @@
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { Box, Heading, PokemonCard, PokemonGrid, Search } from 'design-system';
-import {
-  GET_POKEMONS_QUERY,
-  SEARCH_POKEMONS_QUERY,
-  UPDATE_POKEMON_MUTATION,
-} from './data/pokemon';
+import { GET_POKEMONS_QUERY, UPDATE_POKEMON_MUTATION } from './data/pokemon';
 import { Pokemon } from '../generated-types';
 import { GraphQLResult } from './types';
 function App() {
