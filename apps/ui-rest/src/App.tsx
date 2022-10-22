@@ -9,8 +9,11 @@ import { api } from './services/api';
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
-  const fetchPokemons = async () => {
-    const { data: pokemonData } = await api.get<Pokemon[]>('/pokemons');
+  const fetchPokemons = async (search?: string) => {
+    const queryString = search ? `?search=${search}` : '';
+    const { data: pokemonData } = await api.get<Pokemon[]>(
+      `/pokemons${queryString}`
+    );
     for (const pokemon of pokemonData) {
       const { data: infoData } = await api.get(`/pokemon/${pokemon.id}/info`);
       pokemon.info = infoData;
@@ -36,7 +39,7 @@ function App() {
           <span>Digite o nome do pokemon para começar!</span>
         </div>
 
-        <Search />
+        <Search onSearch={(searchTerm) => fetchPokemons(searchTerm)} />
       </Box>
 
       <PokemonGrid>
