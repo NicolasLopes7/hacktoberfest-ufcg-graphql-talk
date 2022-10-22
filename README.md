@@ -22,7 +22,7 @@ Esse projeto foi utilizado como exemplo na minha palestra na [Hacktoberfest, pro
 
 ## 🚀 Como rodar localmente?
 
-### First steps
+### Primeiros Passos
 > **Warning**
 > 
 > Tenha certeza que você possui o [NodeJS](https://nodejs.org/pt-br/download/package-manager/) instalado, assim como o [yarn](https://classic.yarnpkg.com/lang/en/docs/install/) 
@@ -33,6 +33,10 @@ Esse projeto foi utilizado como exemplo na minha palestra na [Hacktoberfest, pro
 > cd hacktoberfest-ufcg-graphql-talk
 > # instale as dependências
 > yarn install
+```
+- Crie um arquivo `.env` dentro de `/packages/prisma` e copie o exato conteúdo de `.env.example`.
+```sh
+> cp ./packages/prisma/.env.example ./packages/prisma/.env
 ```
 - Agora basta rodar o projeto 😄
 ```sh
